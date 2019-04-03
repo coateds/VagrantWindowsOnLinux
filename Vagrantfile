@@ -1,0 +1,25 @@
+Vagrant.configure(2) do |config|
+  config.vm.guest = :windows
+  config.vm.communicator = :winrm
+  config.winrm.username = "IEUser"
+  config.winrm.password = "Passw0rd!"
+  config.vm.box = "Microsoft/EdgeOnWindows10"
+  config.vm.box_version = "1.0"
+  config.vm.provider :virtualbox do |vb|
+    vb.gui = true
+    vb.customize ["modifyvm", :id, "--vram", "128"]  # vid RAM
+    vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]  
+    vb.memory = 2048
+    vb.cpus = 1   
+  end
+
+
+  config.vm.provision "chef_zero" do |chef|
+    chef.cookbooks_path = "cookbooks"
+    chef.data_bags_path = "data_bags"
+    chef.nodes_path = "nodes"
+    chef.roles_path = "roles"
+
+    chef.add_recipe "windows-as-code::default"
+  end
+end
