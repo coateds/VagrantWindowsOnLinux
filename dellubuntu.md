@@ -18,6 +18,28 @@ attempt to install Ubuntu to an old Dell laptop
   * need at least 2.03 due to conflict
   * 2.04 available
 * sudo apt install git -y
+* install-vscode.sh
+```bash
+#!/bin/bash
+
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EB3E94ADBE1229CF
+add-apt-repository -y "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+apt install code -y
+```
+* modify sudoers to eliminate pw entry
+* `coateds ALL=(ALL) NOPASSWD: ALL`
+* `sudo visudo`
+
+* You can disable the lock screen permanently. This not only means when waking from suspend but also due to inactivity.
+  * $ gsettings get org.gnome.desktop.lockdown disable-lock-screen
+  * Now set it to true using this command:
+  * gsettings set org.gnome.desktop.lockdown disable-lock-screen 'true'
+
+* Play Video from camcorder
+  * sudo apt install libdvdnav4 libdvdread4 gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libdvd-pkg
+  * sudo dpkg-reconfigure libdvd-pkg
+  * sudo apt install ubuntu-restricted-extras
+  * H.264 decoder
 
 ## Usage
 * Hostkey + F inside the Windows (Virtual Box) window will toggle full screen
