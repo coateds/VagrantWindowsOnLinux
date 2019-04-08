@@ -26,6 +26,15 @@ apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EB3E94ADBE1229CF
 add-apt-repository -y "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 apt install code -y
 ```
+* samba
+  * append to /etc/samba/smb.conf
+  ```
+  [gitrepos]
+  path = /home/coateds/gitrepositories
+  public = yes
+  writable = yes
+  ```
+
 * modify sudoers to eliminate pw entry
 * `coateds ALL=(ALL) NOPASSWD: ALL`
 * `sudo visudo`
