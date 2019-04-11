@@ -11,7 +11,18 @@ attempt to install Ubuntu to an old Dell laptop
 
 ## Apps to install
 * vim, openssh-server (required in order to connect from another machine)
+* sudo apt install vim-enhanced
 * sudo apt install openssh-server
+
+```
+#!/bin/bash
+apt install gnome-session -y
+apt install ubuntu-desktop -y
+# package "ubuntu-gnome-desktop"
+apt update && apt upgrade -y
+systemctl isolate graphical.target
+```
+
 * sudo apt install virtualbox -y
 * sudo apt install vagrant
   * default installs 2.02 ubuntu version
