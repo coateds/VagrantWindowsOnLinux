@@ -18,7 +18,7 @@ Install VirtualBox
 
 Run VBoxManage --version to see if all OK, might need some of these commands:
 * sudo /sbin/vboxconfig
-* kernel-devel kernel-devel-3.10.0-957.el7.x86_64
+* sudo yum install -y kernel-devel kernel-devel-3.10.0-957.el7.x86_64
 * /sbin/vboxconfig
 
 Install vagrant 2.2.4
